@@ -17,5 +17,23 @@
     "test:all": "npm test && npm run test:e2e",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev"
+  },
+  "dependencies": {
+    "@fastify/static": "^7.0.4",
+    "@prisma/client": "^5.22.0",
+    "dotenv": "^16.6.1",
+    "fastify": "^4.29.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@testcontainers/postgresql": "^10.28.0",
+    "@types/node": "^20.19.41",
+    "@types/supertest": "^6.0.3",
+    "prisma": "^5.22.0",
+    "supertest": "^7.2.2",
+    "testcontainers": "^10.28.0",
+    "tsx": "^4.22.3",
+    "typescript": "^5.9.3",
+    "vitest": "^2.1.9"
   }
 }
