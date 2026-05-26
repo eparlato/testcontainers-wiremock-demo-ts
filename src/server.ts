@@ -26,6 +26,16 @@ export async function buildServer(deps: ServerDeps): Promise<FastifyInstance> {
     reply.send(error);
   });
 
+  const fastifyStatic = (await import('@fastify/static')).default;
+  const { fileURLToPath } = await import('node:url');
+  const pathMod = await import('node:path');
+  const publicDir = pathMod.resolve(
+    pathMod.dirname(fileURLToPath(import.meta.url)),
+    '..',
+    'public',
+  );
+  await app.register(fastifyStatic, { root: publicDir, prefix: '/' });
+
   await app.register(todosRoutes({ repository, sync }));
 
   return app;
