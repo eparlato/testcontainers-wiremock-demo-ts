@@ -1,6 +1,6 @@
 # testcontainers-wiremock-demo (TypeScript)
 
-TypeScript / Node 20 port of the [Java Testcontainers + WireMock demo](../testcontainers-wiremock-demo). Used in a workshop on refactoring legacy tests — the code intentionally carries the same anti-patterns as the Java version so students can rehearse the same refactorings against an idiomatic-Node baseline.
+TypeScript / Node 20 port of the [Java Testcontainers + WireMock demo](https://github.com/eparlato/testcontainers-wiremock-demo). 
 
 ## Prerequisites
 
@@ -26,13 +26,3 @@ npm run test:all # both, sequentially
 
 Tests require Docker. Each integration test file spins up its own containers — this is intentional and mirrors the duplication smell present in the Java workshop fixture.
 
-## Intentional smells
-
-This codebase is the "before" state for a refactoring workshop. Expect:
-
-- A repository wrapper around the ORM with mixed responsibilities.
-- A distinct persistence type (`TodoEntity`) leaking into one test file.
-- Fire-and-forget async on `POST /todos/hn` that forces tests to poll.
-- Three test files declaring their own containers inline; one file uses a shared helper.
-- Hardcoded title strings in the e2e UI test.
-- Scattered `// TODO` comments left as conversation starters.
