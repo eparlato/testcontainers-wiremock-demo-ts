@@ -1,4 +1,4 @@
-import { afterAll, beforeAll, describe, test } from 'vitest';
+import { afterAll, beforeAll, describe, test, expect } from 'vitest';
 import { GenericContainer, type StartedTestContainer } from 'testcontainers';
 import path from 'node:path';
 import { HackerNewsClient } from '../../src/clients/hackernews-client.js';
@@ -25,8 +25,14 @@ describe('HackerNewsClient (integration)', () => {
   });
 
   test('shouldFetchItem', async () => {
-    const _client = new HackerNewsClient(baseUrl);
-    // TODO complete
+    const client = new HackerNewsClient(baseUrl);
+
+    const item = await client.fetchItem(12345);
+
+    expect(item).toBeDefined();
+    expect(item).toMatchObject({
+      // TODO complete
+    });
   });
 
   // TODO should fetch top stories id
