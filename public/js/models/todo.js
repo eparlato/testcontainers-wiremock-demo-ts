@@ -17,15 +17,7 @@ var app = app || {};
 			link: null
 		},
 
-    idAttribute: "url",
-
-    url: function() { 
-      if( this.isNew() ){
-        return this.collection.url;
-      }else{
-        return this.get('url'); 
-      }
-    },
+    	idAttribute: 'id',
 
 		// Toggle the `completed` state of this todo item.
 		toggle: function () {
